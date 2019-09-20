@@ -28,14 +28,11 @@ class Database {
      * useNewUrlParser -> usar o formato novo de conexão com o banco no parametro 1
      *
      */
-    this.mongoConnection = mongoose.connect(
-      'mongodb://localhost:27017/gobarber',
-      {
-        useNewUrlParser: true,
-        useFindAndModify: true,
-        useUnifiedTopology: true, // evita o DeprecationWarning
-      }
-    );
+    this.mongoConnection = mongoose.connect(process.env.MONGO_URL, {
+      useNewUrlParser: true,
+      useFindAndModify: true,
+      useUnifiedTopology: true, // evita o DeprecationWarning
+    });
   }
 }
 
